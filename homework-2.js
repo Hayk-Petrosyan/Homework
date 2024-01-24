@@ -103,16 +103,18 @@ console.log(replaceChars('blablabla', 'a', '*'));
 
 //* split('') => split into characters
 
-function splitCharacters(str) {
+function splitCharacters(str, separator) {
   const splitArr = [];
 
   for (let i = 0; i < str.length; i++) {
-    splitArr.push(str[i]);
+     if (str[i] !== separator) {
+      splitArr.push(str[i])
+    } 
   }
   return splitArr;
 }
 
-console.log(splitCharacters('happy birthday to you.'));
+console.log(splitCharacters('happy / birthday / to / you!', '/'));
 // =====================================================================
 
 //* split(' ') => split into words
