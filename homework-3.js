@@ -46,14 +46,27 @@ function compareAdjacentProducts(arr) {
     return "The array must consist of at least 3 figures.";
   }
 
-  let biggest = arr[0] * arr[2];
 
-  for (let i = 1; i < arr.length - 1; i++) {
-    let product = arr[i - 1] * arr[i + 1];
+  // Variant 1
+  let biggest = arr[0] * arr[1];
+
+  for (let i = 1; i < arr.length; i++) {
+    let product = arr[i] * arr[i - 1];
     if (product > biggest) {
       biggest = product;
     }
   }
+  
+  // Variant 2 => find the biggest product of both adjacent integers
+  
+  // let biggest = arr[0] * arr[2];
+
+  // for (let i = 1; i < arr.length - 1; i++) {
+  //   let product = arr[i - 1] * arr[i + 1];
+  //   if (product > biggest) {
+  //     biggest = product;
+  //   }
+  // }
 
   return biggest;
 }
