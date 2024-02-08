@@ -99,3 +99,28 @@ function customizeForEach(arr, fn) {
 const numbers = [1, 2, 3, 4, 5];
 const forEachCallback = element => `${element} x ${element} = ${Math.pow(element, 2)}`;
 console.log(customizeForEach(numbers, forEachCallback));
+
+//* reduce() 
+function customizeReduce(arr, fn) {
+  const accumulator = [];
+  for (let i = 0; i < arr.length; i++) {
+    let split = arr[i].name.split(" ");
+    accumulator.push(fn(accumulator, split));
+  }
+
+  return accumulator;
+}
+
+const people = [
+  { name: "Mike Smith" },
+  { name: "Jack Walter" },
+  { name: "Alice Simpson" },
+  { name: "Lily Carter" },
+];
+
+const reduceCallback = (acc, elem) => {
+  acc = ''
+  acc += `${elem[0][0]}${elem[1][0]}`;
+  return acc;
+};
+console.log(customizeReduce(people, reduceCallback));
